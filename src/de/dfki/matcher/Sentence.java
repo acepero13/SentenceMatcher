@@ -19,11 +19,11 @@ public class Sentence {
     }
 
     private void splitSentenceIntoWords(String sentence) {
-        String[] loweredWords = sentence.toLowerCase().split(" ");
+        String[] words = sentence.split(" ");
         this.totalWords = 0;
-        for (String s : loweredWords) {
+        for (String s : words) {
             Word word = new Word(s);
-            words.add(word);
+            this.words.add(word);
             this.totalWords++;
         }
     }
