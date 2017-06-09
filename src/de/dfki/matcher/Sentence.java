@@ -28,7 +28,7 @@ public class Sentence {
         }
     }
 
-    float computeSimilarityIndex(Sentence toCompare) {
+    float computeSimilarityIndexAgainst(Sentence toCompare) {
         float frequency = computeFrequency(toCompare);
         int distance = LevenshteinDistance.distance(this, toCompare);
         log(toCompare, distance);

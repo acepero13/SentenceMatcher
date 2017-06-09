@@ -24,9 +24,9 @@ public class SentenceMatcher {
     public void match(String text) {
         Sentence toMatch = new Sentence(text);
         for (Sentence option: sentences  ) {
-            float similarityIndex = option.computeSimilarityIndex(toMatch);
+            float similarityIndex = option.computeSimilarityIndexAgainst(toMatch);
             updateIndex(option, similarityIndex);
-            System.out.println(similarityIndex);
+            System.out.println("Similarity index: "+ similarityIndex);
         }
     }
 
