@@ -16,22 +16,22 @@ public class SentenceMatcher {
     }
 
     private void buildSentences(LinkedList<String> options) {
-        for (String sentence: options ) {
+        for (String sentence : options) {
             sentences.add(new Sentence(sentence));
         }
     }
 
     public void match(String text) {
         Sentence toMatch = new Sentence(text);
-        for (Sentence option: sentences  ) {
+        for (Sentence option : sentences) {
             float similarityIndex = option.computeSimilarityIndexAgainst(toMatch);
             updateIndex(option, similarityIndex);
-            System.out.println("Similarity index: "+ similarityIndex);
+            System.out.println("Similarity index: " + similarityIndex);
         }
     }
 
     private void updateIndex(Sentence sentence, float similarityIndex) {
-        if(similarityIndex > highestMatchIndex){
+        if (similarityIndex > highestMatchIndex) {
             highestMatchIndex = similarityIndex;
             match = sentence.toString();
         }

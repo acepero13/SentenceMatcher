@@ -16,12 +16,13 @@ class SentenceMatcherTest {
     private LinkedList<String> options;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         options = new LinkedList<>();
     }
+
     @Test
     public void
-    match_ExactSentenceToMatch_MatchTrueAndOptionMatched(){
+    match_ExactSentenceToMatch_MatchTrueAndOptionMatched() {
         toMatchSentence = "We treat the aspect of face as basic wants, which every member knows every member";
         SentenceMatcher matcher = makeMatcher();
         matcher.match("We treat the aspect of face as basic wants, which every member knows every member");
@@ -30,8 +31,9 @@ class SentenceMatcherTest {
         assertEquals(toMatchSentence, matcher.getMatch());
     }
 
-    @Test public void
-    match_SentenceWithMissingWords_MatchTrueAndOptionMatched(){
+    @Test
+    public void
+    match_SentenceWithMissingWords_MatchTrueAndOptionMatched() {
         toMatchSentence = "We treat the aspect of face as basic wants, which every member knows every member";
         SentenceMatcher matcher = makeMatcher();
         matcher.match("We treat the aspect of face which every member knows every member");
@@ -40,8 +42,9 @@ class SentenceMatcherTest {
         assertEquals(toMatchSentence, matcher.getMatch());
     }
 
-    @Test public void
-    match_ShorterSentenceIsRightMatchButLongerSenteceHasMoreCommonWords_ShorterSentces(){
+    @Test
+    public void
+    match_ShorterSentenceIsRightMatchButLongerSenteceHasMoreCommonWords_ShorterSentces() {
         toMatchSentence = "We treat the aspect of face as basic wants, which every member knows every member";
         String expected = "We treat the aspect of face as basic wants ";
         options.add(expected);
@@ -52,8 +55,9 @@ class SentenceMatcherTest {
         assertEquals(expected, matcher.getMatch());
     }
 
-    @Test public void
-    hasMatch_SentenceWithWithSmallMatchingCount_False(){
+    @Test
+    public void
+    hasMatch_SentenceWithWithSmallMatchingCount_False() {
         toMatchSentence = "We treat the aspect of face as basic wants, which every member knows every member";
         SentenceMatcher matcher = makeMatcher();
         matcher.match("aspect treat member ");
@@ -61,8 +65,9 @@ class SentenceMatcherTest {
         assertFalse(isMatchFound);
     }
 
-    @Test public void
-    hasMatch_SentenceWithSameWordsButDifferentOrder_False(){
+    @Test
+    public void
+    hasMatch_SentenceWithSameWordsButDifferentOrder_False() {
         toMatchSentence = "We treat the aspect of face as basic wants, which every member knows every member";
         SentenceMatcher matcher = makeMatcher();
         matcher.match("aspect treat member face member knows wants every");

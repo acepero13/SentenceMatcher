@@ -12,16 +12,16 @@ public class Word {
         this.word = word.toLowerCase().trim();
     }
 
-    public String getWord(){
+    public String getWord() {
         return word;
     }
 
-    public boolean equals(Object obj){
+    public boolean equals(Object obj) {
         Word toCompare = (Word) obj;
         return toCompare.getWord().equals(this.word);
     }
 
-    public String toString(){
+    public String toString() {
         return originalWord;
     }
 
